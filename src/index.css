@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@source inline("bg-{red,green,blue,yellow}-{500}/10");
+@source inline("border-{red,green,blue,yellow}-{500}");
+@source inline("bg-{red,green,blue,yellow}-{100..500..100}");
+@source inline("text-{red,green,blue,yellow}-{100..600..100}");
+@source inline("text-{xs,sm,base,lg,xl,2xl,3xl}");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -110,11 +115,20 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@font-face {
+  font-family: 'PretendardVariable';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
+    font-family: 'PretendardVariable', ui-sans-serif, system-ui;
     @apply bg-background text-foreground;
   }
 }
