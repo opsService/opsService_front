@@ -10,6 +10,7 @@ import {
 import Title from '../common/Title';
 import { TASK_STATUS } from '@/constants/task';
 import Tag from '../common/Tag';
+import { useNavigate } from 'react-router-dom';
 
 const taskData = [
   {
@@ -64,6 +65,8 @@ const taskData = [
 ] as Task[];
 
 function TaskList() {
+  const navigate = useNavigate();
+
   return (
     <div className="col-span-2 bg-white rounded flex flex-col p-4 gap-4 shadow-xs">
       <Title
@@ -95,7 +98,10 @@ function TaskList() {
               </TableCell>
               <TableCell className="text-gray-500">{task.createdAt}</TableCell>
               <TableCell className="text-gray-500">{task.baseModel}</TableCell>
-              <TableCell className="text-blue-500 cursor-pointer">
+              <TableCell
+                className="text-blue-500 cursor-pointer"
+                onClick={() => navigate(`/task/${task.experimentId}`)}
+              >
                 상세보기
               </TableCell>
             </TableRow>

@@ -33,10 +33,12 @@ function ModelStatus() {
         <CountBox label="학습 완료" cnt={36} />
         <CountBox label="학습 중" cnt={6} />
       </div>
-      <h3 className="text-sm font-semibold">최근 생성된 모델</h3>
-      {modelData.map((model) => (
-        <ModelItem key={model.modelId} data={model} />
-      ))}
+      <div className="flex flex-col w-full gap-2">
+        <h3 className="text-sm font-semibold">최근 생성된 모델</h3>
+        {modelData.map((model) => (
+          <ModelItem key={model.modelId} data={model} />
+        ))}
+      </div>
     </div>
   );
 }

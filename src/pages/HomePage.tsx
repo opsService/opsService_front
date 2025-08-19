@@ -15,7 +15,10 @@ import ShortCut from '@/components/home/ShortCut';
 function HomePage() {
   return (
     <div className="py-8 px-12 w-full flex flex-col gap-4">
-      <Title title="대시보드" description="작업 현황 및 통계를 확인하세요." />
+      <Title
+        title="대시보드"
+        description="작업 현황 및 통계를 확인할 수 있습니다."
+      />
       <div className="w-full grid grid-cols-3 gap-4">
         <StatusInfo
           icon={<ListChecks size="1.752rem" className="text-blue-600" />}

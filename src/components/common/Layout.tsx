@@ -3,7 +3,7 @@ import Header from './Header';
 
 function Layout() {
   return (
-    <div className="w-screen h-screen overflow-y-auto bg-slate-100">
+    <div className="relative w-screen h-screen overflow-y-auto bg-slate-100">
       <Header />
       <Outlet />
     </div>

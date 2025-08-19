@@ -3,6 +3,8 @@ import Layout from './components/common/Layout';
 import HomePage from './pages/HomePage';
 import { Provider } from 'react-redux';
 import { store } from './stores/store';
+import TaskPage from './pages/task/TaskPage';
+import TaskDetailPage from './pages/task/TaskDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,19 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: 'task',
+        children: [
+          {
+            index: true,
+            element: <TaskPage />,
+          },
+          {
+            path: ':id',
+            element: <TaskDetailPage />,
+          },
+        ],
       },
     ],
   },
