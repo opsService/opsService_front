@@ -1,4 +1,4 @@
-import type { Task } from '@/model/task';
+import type { Task, TaskDetail } from '@/model/task';
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface TaskState {
@@ -7,6 +7,7 @@ export interface TaskState {
   page: number;
   totalPage: number;
   taskData: Task[];
+  selectedTask: TaskDetail;
 }
 
 const initialState: TaskState = {
@@ -16,55 +17,80 @@ const initialState: TaskState = {
   totalPage: 10,
   taskData: [
     {
-      experimentId: 1,
-      experimentName: '이미지 분류',
-      experimentStatus: 'RUNNING',
+      taskId: 1,
+      taskName: '이미지 분류',
+      taskStatus: 'RUNNING',
+      taskType: 'train',
       baseModel: 'ResNet-50',
       createdAt: '2025-08-18',
     },
     {
-      experimentId: 2,
-      experimentName: '텍스트 요약',
-      experimentStatus: 'COMPLETED',
+      taskId: 2,
+      taskName: '텍스트 요약',
+      taskStatus: 'COMPLETED',
+      taskType: 'inference',
       baseModel: 'BART-large',
       createdAt: '2025-08-17',
     },
     {
-      experimentId: 3,
-      experimentName: '객체 감지',
-      experimentStatus: 'ERROR',
+      taskId: 3,
+      taskName: '객체 감지',
+      taskStatus: 'ERROR',
+      taskType: 'inference',
       baseModel: 'YOLO v5',
       createdAt: '2025-08-16',
     },
     {
-      experimentId: 4,
-      experimentName: '음성 인식',
-      experimentStatus: 'COMPLETED',
+      taskId: 4,
+      taskName: '음성 인식',
+      taskStatus: 'COMPLETED',
+      taskType: 'train',
       baseModel: 'Whisper',
       createdAt: '2025-08-16',
     },
     {
-      experimentId: 5,
-      experimentName: '감정 분석',
-      experimentStatus: 'RUNNING',
+      taskId: 5,
+      taskName: '감정 분석',
+      taskStatus: 'RUNNING',
+      taskType: 'inference',
       baseModel: 'BERT-base',
       createdAt: '2025-08-15',
     },
     {
-      experimentId: 6,
-      experimentName: '감정 분석',
-      experimentStatus: 'RUNNING',
+      taskId: 6,
+      taskName: '감정 분석',
+      taskStatus: 'RUNNING',
+      taskType: 'inference',
       baseModel: 'BERT-base',
       createdAt: '2025-08-15',
     },
     {
-      experimentId: 7,
-      experimentName: '감정 분석',
-      experimentStatus: 'RUNNING',
+      taskId: 7,
+      taskName: '감정 분석',
+      taskStatus: 'RUNNING',
+      taskType: 'inference',
       baseModel: 'BERT-base',
       createdAt: '2025-08-15',
     },
   ],
+  selectedTask: {
+    taskId: 7,
+    taskName: '감정 분석',
+    taskStatus: 'RUNNING',
+    taskType: 'train',
+    baseModel: {
+      modelId: 1,
+      modelName: 'BERT-base',
+      createdAt: '2025-08-15',
+      type: 'CUSTOM',
+      hyperparameters: {
+        epoch: 30,
+        batchSize: 64,
+        learningRate: 0.0005,
+      },
+    },
+    createdAt: '2025-08-15',
+  },
 };
 
 export const taskSlice = createSlice({

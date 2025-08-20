@@ -6,3 +6,11 @@ export interface Model {
   createdAt: string;
   type: ModelType;
 }
+
+export interface ModelDetail extends Model {
+  hyperparameters?: {
+    epoch: number;
+    batchSize: number;
+    learningRate: number;
+  };
+}

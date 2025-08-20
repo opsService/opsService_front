@@ -36,20 +36,18 @@ function TaskList() {
         </TableHeader>
         <TableBody>
           {taskData.map((task) => (
-            <TableRow key={task.experimentId}>
-              <TableCell className="font-semibold">
-                {task.experimentName}
-              </TableCell>
+            <TableRow key={task.taskId}>
+              <TableCell className="font-semibold">{task.taskName}</TableCell>
               <TableCell>
-                <Tag color={TASK_STATUS[task.experimentStatus].color} size="sm">
-                  {TASK_STATUS[task.experimentStatus].label}
+                <Tag color={TASK_STATUS[task.taskStatus].color} size="sm">
+                  {TASK_STATUS[task.taskStatus].label}
                 </Tag>
               </TableCell>
               <TableCell className="text-gray-500">{task.createdAt}</TableCell>
               <TableCell className="text-gray-500">{task.baseModel}</TableCell>
               <TableCell
                 className="text-blue-500 cursor-pointer"
-                onClick={() => navigate(`/task/${task.experimentId}`)}
+                onClick={() => navigate(`/task/${task.taskId}`)}
               >
                 상세보기
               </TableCell>

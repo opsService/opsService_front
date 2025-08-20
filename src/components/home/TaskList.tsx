@@ -14,51 +14,58 @@ import { useNavigate } from 'react-router-dom';
 
 const taskData = [
   {
-    experimentId: 1,
-    experimentName: '이미지 분류',
-    experimentStatus: 'RUNNING',
+    taskId: 1,
+    taskName: '이미지 분류',
+    taskStatus: 'RUNNING',
+    taskType: 'train',
     baseModel: 'ResNet-50',
     createdAt: '2025-08-18',
   },
   {
-    experimentId: 2,
-    experimentName: '텍스트 요약',
-    experimentStatus: 'COMPLETED',
+    taskId: 2,
+    taskName: '텍스트 요약',
+    taskStatus: 'COMPLETED',
+    taskType: 'inference',
     baseModel: 'BART-large',
     createdAt: '2025-08-17',
   },
   {
-    experimentId: 3,
-    experimentName: '객체 감지',
-    experimentStatus: 'ERROR',
+    taskId: 3,
+    taskName: '객체 감지',
+    taskStatus: 'ERROR',
+    taskType: 'inference',
     baseModel: 'YOLO v5',
     createdAt: '2025-08-16',
   },
   {
-    experimentId: 4,
-    experimentName: '음성 인식',
-    experimentStatus: 'COMPLETED',
+    taskId: 4,
+    taskName: '음성 인식',
+    taskStatus: 'COMPLETED',
+    taskType: 'train',
     baseModel: 'Whisper',
     createdAt: '2025-08-16',
   },
   {
-    experimentId: 5,
-    experimentName: '감정 분석',
-    experimentStatus: 'RUNNING',
+    taskId: 5,
+    taskName: '감정 분석',
+    taskStatus: 'RUNNING',
+    taskType: 'inference',
     baseModel: 'BERT-base',
     createdAt: '2025-08-15',
   },
   {
-    experimentId: 6,
-    experimentName: '감정 분석',
-    experimentStatus: 'RUNNING',
+    taskId: 6,
+    taskName: '감정 분석',
+    taskStatus: 'RUNNING',
+    taskType: 'inference',
     baseModel: 'BERT-base',
     createdAt: '2025-08-15',
   },
   {
-    experimentId: 7,
-    experimentName: '감정 분석',
-    experimentStatus: 'RUNNING',
+    taskId: 7,
+    taskName: '감정 분석',
+    taskStatus: 'RUNNING',
+    taskType: 'inference',
     baseModel: 'BERT-base',
     createdAt: '2025-08-15',
   },
@@ -87,20 +94,18 @@ function TaskList() {
         </TableHeader>
         <TableBody>
           {taskData.map((task) => (
-            <TableRow key={task.experimentId}>
-              <TableCell className="font-semibold">
-                {task.experimentName}
-              </TableCell>
+            <TableRow key={task.taskId}>
+              <TableCell className="font-semibold">{task.taskName}</TableCell>
               <TableCell>
-                <Tag color={TASK_STATUS[task.experimentStatus].color} size="sm">
-                  {TASK_STATUS[task.experimentStatus].label}
+                <Tag color={TASK_STATUS[task.taskStatus].color} size="sm">
+                  {TASK_STATUS[task.taskStatus].label}
                 </Tag>
               </TableCell>
               <TableCell className="text-gray-500">{task.createdAt}</TableCell>
               <TableCell className="text-gray-500">{task.baseModel}</TableCell>
               <TableCell
                 className="text-blue-500 cursor-pointer"
-                onClick={() => navigate(`/task/${task.experimentId}`)}
+                onClick={() => navigate(`/task/${task.taskId}`)}
               >
                 상세보기
               </TableCell>

@@ -1,4 +1,8 @@
 export const TASK_STATUS = {
+  PENDING: {
+    label: '대기중',
+    color: 'yellow',
+  },
   RUNNING: {
     label: '실행중',
     color: 'green',
