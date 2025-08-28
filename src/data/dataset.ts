@@ -1,0 +1,115 @@
+import type { Dataset } from '@/model/dataset';
+
+export const DATA_SET = {
+  1: [
+    {
+      datasetId: 101,
+      datasetName: 'ImageNet_subset',
+      uploadedAt: '2025-08-28T14:20:00Z',
+      size: 120000,
+      datasetPath: '/datasets/imagenet_subset',
+    },
+    {
+      datasetId: 102,
+      datasetName: 'CIFAR10_augmented',
+      uploadedAt: '2025-08-27T10:15:00Z',
+      size: 60000,
+      datasetPath: '/datasets/cifar10_augmented',
+    },
+    {
+      datasetId: 103,
+      datasetName: 'MNIST_cleaned',
+      uploadedAt: '2025-08-26T09:00:00Z',
+      size: 70000,
+      datasetPath: '/datasets/mnist_cleaned',
+    },
+    {
+      datasetId: 104,
+      datasetName: 'CustomDataset_v2',
+      uploadedAt: '2025-08-25T17:45:00Z',
+      size: 15000,
+      datasetPath: '/datasets/custom_v2',
+    },
+    {
+      datasetId: 105,
+      datasetName: 'CustomDataset_v1',
+      uploadedAt: '2025-08-24T12:30:00Z',
+      size: 8000,
+      datasetPath: '/datasets/custom_v1',
+    },
+  ],
+  2: [
+    {
+      datasetId: 201,
+      datasetName: 'HousingPrices_2025Q3',
+      uploadedAt: '2025-08-28T13:00:00Z',
+      size: 5000,
+      datasetPath: '/datasets/housing_prices_q3',
+    },
+    {
+      datasetId: 202,
+      datasetName: 'SalesForecasting',
+      uploadedAt: '2025-08-27T15:10:00Z',
+      size: 12000,
+      datasetPath: '/datasets/sales_forecasting',
+    },
+    {
+      datasetId: 203,
+      datasetName: 'InsuranceRisk',
+      uploadedAt: '2025-08-26T11:50:00Z',
+      size: 20000,
+      datasetPath: '/datasets/insurance_risk',
+    },
+    {
+      datasetId: 204,
+      datasetName: 'CreditScoring_v2',
+      uploadedAt: '2025-08-25T19:20:00Z',
+      size: 15000,
+      datasetPath: '/datasets/credit_scoring_v2',
+    },
+    {
+      datasetId: 205,
+      datasetName: 'CreditScoring_v1',
+      uploadedAt: '2025-08-24T08:40:00Z',
+      size: 10000,
+      datasetPath: '/datasets/credit_scoring_v1',
+    },
+  ],
+  3: [
+    {
+      datasetId: 301,
+      datasetName: 'IMDB_reviews',
+      uploadedAt: '2025-08-28T09:30:00Z',
+      size: 50000,
+      datasetPath: '/datasets/imdb_reviews',
+    },
+    {
+      datasetId: 302,
+      datasetName: 'Twitter_sentiment',
+      uploadedAt: '2025-08-27T18:00:00Z',
+      size: 120000,
+      datasetPath: '/datasets/twitter_sentiment',
+    },
+    {
+      datasetId: 303,
+      datasetName: 'NewsHeadlines_classification',
+      uploadedAt: '2025-08-26T14:25:00Z',
+      size: 30000,
+      datasetPath: '/datasets/news_headlines',
+    },
+    {
+      datasetId: 304,
+      datasetName: 'CustomerSupport_tickets',
+      uploadedAt: '2025-08-25T16:10:00Z',
+      size: 15000,
+      datasetPath: '/datasets/customer_support',
+    },
+    {
+      datasetId: 305,
+      datasetName: 'AmazonReviews_small',
+      uploadedAt: '2025-08-24T07:55:00Z',
+      size: 20000,
+      datasetPath: '/datasets/amazon_reviews_small',
+    },
+  ],
+} as Record<number, Dataset[]>;

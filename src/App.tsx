@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './stores/store';
 import TaskPage from './pages/task/TaskPage';
 import TaskDetailPage from './pages/task/TaskDetailPage';
+import DatasetPage from './pages/dataset/DatatasetPage';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,15 @@ const router = createBrowserRouter([
           {
             path: ':id',
             element: <TaskDetailPage />,
+          },
+        ],
+      },
+      {
+        path: 'dataset',
+        children: [
+          {
+            index: true,
+            element: <DatasetPage />,
           },
         ],
       },

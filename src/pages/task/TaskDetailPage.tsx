@@ -12,7 +12,7 @@ function TaskDetailPage() {
   );
 
   return (
-    <div className="py-8 px-12 w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4">
       <span
         onClick={() => navigate('/task')}
         className="text-sky-500 font-semibold cursor-pointer"

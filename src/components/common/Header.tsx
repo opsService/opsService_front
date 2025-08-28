@@ -10,7 +10,7 @@ const menuItems = [
 
 function Header() {
   return (
-    <header className="sticky top-0 w-full h-fit flex items-center py-4 px-12 bg-white shadow-xs">
+    <header className="w-full h-fit flex items-center py-4 px-12 bg-white shadow-xs">
       <div className="flex items-center gap-12">
         <img src={logo} className="h-[3rem]" />
         <ul className="flex items-center gap-8">

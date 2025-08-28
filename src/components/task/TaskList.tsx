@@ -23,7 +23,7 @@ function TaskList() {
   );
 
   return (
-    <div className="w-full rounded bg-white p-4 flex flex-col gap-4 items-center">
+    <div className="w-full rounded bg-white p-4 flex flex-col gap-4 items-center shadow-xs">
       <Table>
         <TableHeader>
           <TableRow>

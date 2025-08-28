@@ -14,7 +14,7 @@ import ShortCut from '@/components/home/ShortCut';
 
 function HomePage() {
   return (
-    <div className="py-8 px-12 w-full flex flex-col gap-4">
+    <div className="w-full h-fit flex flex-col gap-4">
       <Title
         title="대시보드"
         description="작업 현황 및 통계를 확인할 수 있습니다."
@@ -43,7 +43,7 @@ function HomePage() {
         <TaskList />
         <ModelStatus />
       </div>
-      <div className="grid grid-cols-3 gap-4 h-[5rem]">
+      <div className="grid grid-cols-3 gap-4 h-[6rem]">
         <ShortCut
           icon={<Brain size="2rem" className="text-blue-600" />}
           label="Train 생성"
