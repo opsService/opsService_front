@@ -1,8 +1,12 @@
+import type { TaskStatusType, TaskType } from '@/constants/task';
 import type { Task, TaskDetail } from '@/model/task';
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface TaskState {
-  selectedFilter: 'all' | 'train' | 'inference';
+  selectedFilter: {
+    taskType: 'all' | TaskType;
+    status: 'all' | TaskStatusType;
+  };
   isSortedLatest: 'true' | 'false';
   page: number;
   totalPage: number;
@@ -11,7 +15,10 @@ export interface TaskState {
 }
 
 const initialState: TaskState = {
-  selectedFilter: 'all',
+  selectedFilter: {
+    taskType: 'all',
+    status: 'all',
+  },
   isSortedLatest: 'true',
   page: 1,
   totalPage: 10,
@@ -77,19 +84,16 @@ const initialState: TaskState = {
     taskId: 7,
     taskName: '감정 분석',
     taskStatus: 'RUNNING',
-    taskType: 'train',
+    taskType: 'inference',
     baseModel: {
       modelId: 1,
       modelName: 'BERT-base',
       createdAt: '2025-08-15',
+      version: 'v1',
       type: 'CUSTOM',
-      hyperparameters: {
-        epoch: 30,
-        batchSize: 64,
-        learningRate: 0.0005,
-      },
     },
     createdAt: '2025-08-15',
+    endpoint: '/api/v1/<url>',
   },
 };
 
@@ -98,7 +102,11 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     setFilter: (state, action) => {
-      state.selectedFilter = action.payload;
+      const { key, value } = action.payload;
+      state.selectedFilter = {
+        ...state.selectedFilter,
+        [key]: value,
+      };
     },
     setSort: (state, action) => {
       state.isSortedLatest = action.payload;

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import InfoBox from './InfoBox';
 import Tag from '@/components/common/Tag';
 import { Brain, Bot, Circle, Trash2, Ban } from 'lucide-react';
-import { TASK_STATUS } from '@/constants/task';
+import { TASK_STATUS, TASK_TYPE } from '@/constants/task';
 import dayjs from 'dayjs';
 import { Button } from '@/components/ui/button';
 
@@ -14,6 +14,8 @@ function TaskInfo() {
   );
 
   if (!selectedTask) return;
+
+  const Icon = TASK_TYPE[selectedTask.taskType].icon;
 
   return (
     <div className="rounded bg-white p-6 flex flex-col gap-4">
@@ -34,16 +36,9 @@ function TaskInfo() {
         <InfoBox
           name="Task 유형"
           content={
-            <Tag
-              size="sm"
-              color={selectedTask.taskType === 'train' ? 'blue' : 'green'}
-            >
-              {selectedTask.taskType === 'train' ? (
-                <Brain size="1rem" />
-              ) : (
-                <Bot size="1rem" />
-              )}
-              {selectedTask.taskType === 'train' ? 'Train' : 'Inference'}
+            <Tag size="sm" color={TASK_TYPE[selectedTask.taskType].color}>
+              <Icon size="1rem" />
+              {TASK_TYPE[selectedTask.taskType].label}
             </Tag>
           }
         />

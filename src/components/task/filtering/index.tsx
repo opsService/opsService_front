@@ -10,7 +10,7 @@ function FilteringBar() {
         <input
           className="text-sm outline-none"
           type="text"
-          placeholder="Task 이름 검색"
+          placeholder="Task / 모델 이름 검색"
         />
       </div>
       <FilterBox />

@@ -1,10 +1,15 @@
-import { Fragment } from 'react';
-import { Separator } from '@/components/ui/separator';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/stores/store';
 import { setFilter } from '@/stores/task';
+import {
+  Select,
+  SelectItem,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
-const filters = [
+const taskTypeFilter = [
   {
     label: '전체',
     value: 'all',
@@ -19,6 +24,29 @@ const filters = [
   },
 ];
 
+const statusFilter = [
+  {
+    label: '전체',
+    value: 'all',
+  },
+  {
+    label: '대기중',
+    value: 'PENDING',
+  },
+  {
+    label: '실행중',
+    value: 'RUNNING',
+  },
+  {
+    label: '완료됨',
+    value: 'COMPLETED',
+  },
+  {
+    label: '실패',
+    value: 'ERROR',
+  },
+];
+
 function FilterBox() {
   const dispatch = useDispatch();
   const selectedFilter = useSelector(
@@ -26,19 +54,64 @@ function FilterBox() {
   );
 
   return (
-    <ul className="h-full rounded border border-gray-200 flex items-center">
-      {filters.map((filter, idx) => (
-        <Fragment key={idx}>
-          <li
-            className={`h-full flex items-center justify-center px-4 text-sm cursor-pointer ${selectedFilter === filter.value ? 'bg-blue-400/10 font-semibold' : 'hover:bg-gray-400/10'}`}
-            onClick={() => dispatch(setFilter(filter.value))}
+    <div className="flex gap-4 h-full">
+      <div className="relative w-[8rem]">
+        <label
+          htmlFor="taskType"
+          className="absolute -top-2 left-1 bg-white px-1 text-xs text-gray-500"
+        >
+          작업 유형
+        </label>
+        <Select
+          value={selectedFilter.taskType}
+          onValueChange={(value) =>
+            dispatch(setFilter({ key: 'taskType', value }))
+          }
+        >
+          <SelectTrigger
+            id="taskType"
+            className="w-full min-h-full rounded shadow-none border border-gray-200 focus-visible:ring-0 focus-visible:border-gray-200"
           >
-            {filter.label}
-          </li>
-          {idx !== filters.length - 1 && <Separator orientation="vertical" />}
-        </Fragment>
-      ))}
-    </ul>
+            <SelectValue placeholder="유형 선택" />
+          </SelectTrigger>
+          <SelectContent>
+            {taskTypeFilter.map((filter) => (
+              <SelectItem key={filter.value} value={filter.value}>
+                {filter.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="relative w-[8rem]">
+        <label
+          htmlFor="statusType"
+          className="absolute -top-2 left-1 bg-white px-1 text-xs text-gray-500"
+        >
+          상태
+        </label>
+        <Select
+          value={selectedFilter.status}
+          onValueChange={(value) =>
+            dispatch(setFilter({ key: 'status', value }))
+          }
+        >
+          <SelectTrigger
+            id="statusType"
+            className="w-full min-h-full rounded shadow-none border border-gray-200 focus-visible:ring-0 focus-visible:border-gray-200"
+          >
+            <SelectValue placeholder="상태 선택" />
+          </SelectTrigger>
+          <SelectContent>
+            {statusFilter.map((filter) => (
+              <SelectItem key={filter.value} value={filter.value}>
+                {filter.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
   );
 }
 

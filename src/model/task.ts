@@ -1,20 +1,61 @@
-import type { TaskStatusType } from '@/constants/task';
+import type { TaskStatusType, TaskType } from '@/constants/task';
 import type { ModelDetail } from './model';
 
 export interface Task {
   taskId: number;
   taskName: string;
   taskStatus: TaskStatusType;
-  taskType: 'train' | 'inference';
+  taskType: TaskType;
   baseModel: string;
   createdAt: string;
 }
 
-export interface TaskDetail {
+interface BaseTaskDetail {
   taskId: number;
   taskName: string;
   taskStatus: TaskStatusType;
-  taskType: 'train' | 'inference';
   baseModel: ModelDetail;
   createdAt: string;
 }
+
+export interface TrainTaskDetail extends BaseTaskDetail {
+  taskType: 'train';
+  // hyperparameters: {
+  //   epoch: number;
+  //   batchSize: number;
+  //   learningRate: number;
+  // };
+  // dataset: {
+  //   datasetId: number;
+  //   datasetName: string;
+  //   numOfTrainSample: number;
+  //   numOfValidationSample: number;
+  // };
+  // metric: {
+  //   epoch: number;
+  //   trainAcc: number;
+  //   valAcc: number;
+  //   valF1: number;
+  // }[];
+}
+
+export interface InferenceTaskDetail extends BaseTaskDetail {
+  taskType: 'inference';
+  endpoint: string;
+  // sampleInput: {
+  //   dataType: string;
+  //   dataName: string;
+  //   dataUrl: string;
+  // };
+  // sampleOutput: {
+  //   dataType: string;
+  //   dataName: string;
+  //   dataUrl: string;
+  //   prediction: {
+  //     class: string;
+  //     confidence: number;
+  //   };
+  // };
+}
+
+export type TaskDetail = TrainTaskDetail | InferenceTaskDetail;
