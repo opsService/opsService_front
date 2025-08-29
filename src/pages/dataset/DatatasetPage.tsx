@@ -25,10 +25,10 @@ function DatasetPage() {
         description="업로드한 Dataset을 관리할 수 있습니다."
       />
       <div className="w-full rounded shadow-xs bg-white flex-grow flex min-h-0 overflow-hidden">
-        <Sidebar>
+        <Sidebar width="w-[14rem]">
           <Sidebar.Header>
             <Package size="1rem" />
-            <span className="font-semibold">모델 목록</span>
+            <span className="font-semibold text-lg">모델 목록</span>
           </Sidebar.Header>
           <Sidebar.Content>
             {BASE_MODEL.map((model) => (
