@@ -11,8 +11,11 @@ import {
 } from 'lucide-react';
 import ModelStatus from '@/components/home/modelStatus';
 import ShortCut from '@/components/home/ShortCut';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full h-fit flex flex-col gap-4">
       <Title
@@ -48,16 +51,19 @@ function HomePage() {
           icon={<Brain size="2rem" className="text-blue-600" />}
           label="Train 생성"
           color="blue"
+          onClick={() => navigate('/task/create?taskType=train')}
         />
         <ShortCut
           icon={<Bot size="2rem" className="text-green-600" />}
           label="Inference 생성"
           color="green"
+          onClick={() => navigate('/task/create?taskType=inference')}
         />
         <ShortCut
           icon={<Database size="2rem" className="text-yellow-600" />}
           label="데이터셋 보기"
           color="yellow"
+          onClick={() => navigate('/dataset')}
         />
       </div>
     </div>

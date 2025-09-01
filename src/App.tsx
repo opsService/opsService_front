@@ -8,6 +8,7 @@ import TaskDetailPage from './pages/task/TaskDetailPage';
 import DatasetPage from './pages/dataset/DatatasetPage';
 import ModelPage from './pages/model/ModelPage';
 import ModelDetailPage from './pages/model/ModelDetailPage';
+import TaskFormPage from './pages/task/TaskFormPage';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
           {
             path: ':id',
             element: <TaskDetailPage />,
+          },
+          {
+            path: 'create',
+            element: <TaskFormPage />,
           },
         ],
       },

@@ -17,7 +17,7 @@ export const BASE_MODEL = [
 
 export const MODELS: Model[] = [
   {
-    modelId: 1,
+    modelId: 11,
     modelName: 'Object Detection v1',
     description: 'YOLOv5 기반 객체 탐지 모델',
     createdAt: '2025-08-01T14:23:00Z',
@@ -30,7 +30,7 @@ export const MODELS: Model[] = [
     type: 'CUSTOM',
   },
   {
-    modelId: 2,
+    modelId: 12,
     modelName: 'Image Classification ResNet18',
     description: 'ResNet18을 활용한 이미지 분류 모델',
     createdAt: '2025-08-10T09:00:00Z',
@@ -43,7 +43,7 @@ export const MODELS: Model[] = [
     type: 'CUSTOM',
   },
   {
-    modelId: 3,
+    modelId: 13,
     modelName: 'Text Classification BERT',
     description: 'BERT 기반 텍스트 분류 모델',
     createdAt: '2025-08-12T15:45:00Z',

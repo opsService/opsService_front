@@ -1,13 +1,18 @@
+import clsx from 'clsx';
+
 function Sidebar({
   children,
-  width = 'w-[12rem]',
+  className = 'w-[12rem] bg-transparent',
 }: {
   children: React.ReactNode;
-  width?: string;
+  className?: string;
 }) {
   return (
     <div
-      className={`h-full ${width} flex flex-col bg-white border-r border-gray-200 overflow-y-auto overflow-x-hidden`}
+      className={clsx(
+        'h-full flex flex-col border-r border-gray-200 overflow-y-auto overflow-x-hidden',
+        className,
+      )}
     >
       {children}
     </div>
@@ -39,7 +44,7 @@ function SidebarMenu({
 }) {
   return (
     <li
-      className={`w-full flex items-center rounded p-2 gap-2 ${isSelected ? 'bg-sky-100' : ' hover:text-sky-300'}`}
+      className={`w-full flex items-center rounded p-2 gap-2 ${isSelected ? 'bg-sky-100' : ' hover:text-sky-500'}`}
       onClick={onClick}
     >
       <span
