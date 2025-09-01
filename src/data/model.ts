@@ -156,6 +156,10 @@ export const MODEL_DETAIL: ModelDetail = {
   type: 'CUSTOM',
   modelTask: 'object_detection',
   version: 'v1.0.0',
+  baseModel: {
+    modelId: 1,
+    modelName: 'YOLOv5',
+  },
   metrics: {
     accuracy: 0.92,
     f1_score: 0.89,

@@ -1,9 +1,9 @@
 import Title from '@/components/common/Title';
 import type { RootState } from '@/stores/store';
 import { useSelector } from 'react-redux';
-import InfoBox from './InfoBox';
+import InfoBox from '../../common/InfoBox';
 import Tag from '@/components/common/Tag';
-import { Brain, Bot, Circle, Trash2, Ban } from 'lucide-react';
+import { Circle, Trash2, Ban } from 'lucide-react';
 import { TASK_STATUS, TASK_TYPE } from '@/constants/task';
 import dayjs from 'dayjs';
 import { Button } from '@/components/ui/button';
@@ -18,9 +18,9 @@ function TaskInfo() {
   const Icon = TASK_TYPE[selectedTask.taskType].icon;
 
   return (
-    <div className="rounded bg-white p-6 flex flex-col gap-4">
+    <div className="rounded bg-white p-6 flex flex-col gap-4 shadow-xs">
       <div className="flex gap-4 justify-between">
-        <Title title={selectedTask.taskName} as="h3" size="medium" />
+        <Title title={selectedTask.taskName} as="h2" size="medium" />
         <div className="flex gap-3 items-center">
           <Button className="cursor-pointer">
             <Ban />
