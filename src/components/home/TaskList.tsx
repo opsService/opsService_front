@@ -12,13 +12,16 @@ import { TASK_STATUS } from '@/constants/task';
 import Tag from '../common/Tag';
 import { useNavigate } from 'react-router-dom';
 
-const taskData = [
+const taskData: Task[] = [
   {
     taskId: 1,
     taskName: '이미지 분류',
     taskStatus: 'RUNNING',
     taskType: 'train',
-    baseModel: 'ResNet-50',
+    baseModel: {
+      modelId: 1,
+      modelName: 'ResNet-50',
+    },
     createdAt: '2025-08-18',
   },
   {
@@ -26,7 +29,10 @@ const taskData = [
     taskName: '텍스트 요약',
     taskStatus: 'COMPLETED',
     taskType: 'inference',
-    baseModel: 'BART-large',
+    baseModel: {
+      modelId: 2,
+      modelName: 'BART-large',
+    },
     createdAt: '2025-08-17',
   },
   {
@@ -34,7 +40,10 @@ const taskData = [
     taskName: '객체 감지',
     taskStatus: 'ERROR',
     taskType: 'inference',
-    baseModel: 'YOLO v5',
+    baseModel: {
+      modelId: 3,
+      modelName: 'YOLO v5',
+    },
     createdAt: '2025-08-16',
   },
   {
@@ -42,7 +51,10 @@ const taskData = [
     taskName: '음성 인식',
     taskStatus: 'COMPLETED',
     taskType: 'train',
-    baseModel: 'Whisper',
+    baseModel: {
+      modelId: 4,
+      modelName: 'Whisper',
+    },
     createdAt: '2025-08-16',
   },
   {
@@ -50,7 +62,10 @@ const taskData = [
     taskName: '감정 분석',
     taskStatus: 'RUNNING',
     taskType: 'inference',
-    baseModel: 'BERT-base',
+    baseModel: {
+      modelId: 5,
+      modelName: 'BERT-base',
+    },
     createdAt: '2025-08-15',
   },
   {
@@ -58,7 +73,10 @@ const taskData = [
     taskName: '감정 분석',
     taskStatus: 'RUNNING',
     taskType: 'inference',
-    baseModel: 'BERT-base',
+    baseModel: {
+      modelId: 5,
+      modelName: 'BERT-base',
+    },
     createdAt: '2025-08-15',
   },
   {
@@ -66,10 +84,13 @@ const taskData = [
     taskName: '감정 분석',
     taskStatus: 'RUNNING',
     taskType: 'inference',
-    baseModel: 'BERT-base',
+    baseModel: {
+      modelId: 5,
+      modelName: 'BERT-base',
+    },
     createdAt: '2025-08-15',
   },
-] as Task[];
+];
 
 function TaskList() {
   const navigate = useNavigate();
@@ -78,7 +99,7 @@ function TaskList() {
     <div className="col-span-2 bg-white rounded flex flex-col p-4 gap-4 shadow-xs">
       <Title
         title="최근 Task 목록"
-        description="최근 생성된 5개의 Task"
+        description="최근 생성된 7개의 Task"
         size="small"
         as="h2"
       />
@@ -102,7 +123,9 @@ function TaskList() {
                 </Tag>
               </TableCell>
               <TableCell className="text-gray-500">{task.createdAt}</TableCell>
-              <TableCell className="text-gray-500">{task.baseModel}</TableCell>
+              <TableCell className="text-gray-500">
+                {task.baseModel.modelName}
+              </TableCell>
               <TableCell
                 className="text-blue-500 cursor-pointer"
                 onClick={() => navigate(`/task/${task.taskId}`)}

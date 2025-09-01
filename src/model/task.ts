@@ -1,12 +1,15 @@
 import type { TaskStatusType, TaskType } from '@/constants/task';
-import type { ModelDetail } from './model';
+import type { Model } from './model';
 
 export interface Task {
   taskId: number;
   taskName: string;
   taskStatus: TaskStatusType;
   taskType: TaskType;
-  baseModel: string;
+  baseModel: {
+    modelId: number;
+    modelName: string;
+  };
   createdAt: string;
 }
 
@@ -14,7 +17,10 @@ interface BaseTaskDetail {
   taskId: number;
   taskName: string;
   taskStatus: TaskStatusType;
-  baseModel: ModelDetail;
+  baseModel: {
+    modelId: number;
+    modelName: string;
+  };
   createdAt: string;
 }
 

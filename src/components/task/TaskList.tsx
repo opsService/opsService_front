@@ -57,7 +57,7 @@ function TaskList() {
                   {task.createdAt}
                 </TableCell>
                 <TableCell className="text-gray-500">
-                  {task.baseModel}
+                  {task.baseModel.modelName}
                 </TableCell>
                 <TableCell
                   className="text-blue-500 cursor-pointer"

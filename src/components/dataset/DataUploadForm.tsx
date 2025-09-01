@@ -1,5 +1,5 @@
 import { formatBytes } from '@/utils/size';
-import { FilePlus2, FolderArchive } from 'lucide-react';
+import { FilePlus2, FolderArchive, X } from 'lucide-react';
 import { useState } from 'react';
 
 function DataUploadForm() {
@@ -36,7 +36,9 @@ function DataUploadForm() {
             파일 업로드{' '}
             <span className="text-red-500">(※ .zip 파일만 가능)</span>
           </span>
-          <div className="p-4 w-full rounded border border-gray-200 hover:bg-black/10">
+          <div
+            className={`p-4 w-full rounded border border-gray-200 ${!file && 'hover:bg-black/10'}`}
+          >
             {!file ? (
               <>
                 <input
@@ -53,10 +55,17 @@ function DataUploadForm() {
                 </div>
               </>
             ) : (
-              <div className="flex items-center gap-2 text-gray-500">
-                <FolderArchive size="1rem" />
-                <span className="text-black text-base">{file.name}</span>
-                <span>{formatBytes(file.size)}</span>
+              <div className="flex items-center gap-2 justify-between">
+                <div className="flex items-center gap-2 text-gray-500">
+                  <FolderArchive size="1rem" />
+                  <span className="text-black text-base">{file.name}</span>
+                  <span>{formatBytes(file.size)}</span>
+                </div>
+                <X
+                  size="1.25rem"
+                  className="cursor-pointer"
+                  onMouseUp={() => setFile(undefined)}
+                />
               </div>
             )}
           </div>

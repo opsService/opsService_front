@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import LogTab from '../LogTab';
 import OverviewTab from './OverviewTab';
-import MetricInfoTab from './metric/MetricInfoTab';
+import MetricInfoTab from './metric';
 
 function TrainInfo() {
   return (

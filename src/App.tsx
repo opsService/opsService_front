@@ -6,6 +6,7 @@ import { store } from './stores/store';
 import TaskPage from './pages/task/TaskPage';
 import TaskDetailPage from './pages/task/TaskDetailPage';
 import DatasetPage from './pages/dataset/DatatasetPage';
+import ModelPage from './pages/model/ModelPage';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,15 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <DatasetPage />,
+          },
+        ],
+      },
+      {
+        path: 'model',
+        children: [
+          {
+            index: true,
+            element: <ModelPage />,
           },
         ],
       },

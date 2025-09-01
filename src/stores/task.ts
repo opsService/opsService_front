@@ -28,7 +28,10 @@ const initialState: TaskState = {
       taskName: '이미지 분류',
       taskStatus: 'RUNNING',
       taskType: 'train',
-      baseModel: 'ResNet-50',
+      baseModel: {
+        modelId: 1,
+        modelName: 'ResNet-50',
+      },
       createdAt: '2025-08-18',
     },
     {
@@ -36,7 +39,10 @@ const initialState: TaskState = {
       taskName: '텍스트 요약',
       taskStatus: 'COMPLETED',
       taskType: 'inference',
-      baseModel: 'BART-large',
+      baseModel: {
+        modelId: 2,
+        modelName: 'BART-large',
+      },
       createdAt: '2025-08-17',
     },
     {
@@ -44,7 +50,10 @@ const initialState: TaskState = {
       taskName: '객체 감지',
       taskStatus: 'ERROR',
       taskType: 'inference',
-      baseModel: 'YOLO v5',
+      baseModel: {
+        modelId: 3,
+        modelName: 'YOLO v5',
+      },
       createdAt: '2025-08-16',
     },
     {
@@ -52,7 +61,10 @@ const initialState: TaskState = {
       taskName: '음성 인식',
       taskStatus: 'COMPLETED',
       taskType: 'train',
-      baseModel: 'Whisper',
+      baseModel: {
+        modelId: 4,
+        modelName: 'Whisper',
+      },
       createdAt: '2025-08-16',
     },
     {
@@ -60,7 +72,10 @@ const initialState: TaskState = {
       taskName: '감정 분석',
       taskStatus: 'RUNNING',
       taskType: 'inference',
-      baseModel: 'BERT-base',
+      baseModel: {
+        modelId: 5,
+        modelName: 'BERT-base',
+      },
       createdAt: '2025-08-15',
     },
     {
@@ -68,7 +83,10 @@ const initialState: TaskState = {
       taskName: '감정 분석',
       taskStatus: 'RUNNING',
       taskType: 'inference',
-      baseModel: 'BERT-base',
+      baseModel: {
+        modelId: 5,
+        modelName: 'BERT-base',
+      },
       createdAt: '2025-08-15',
     },
     {
@@ -76,24 +94,38 @@ const initialState: TaskState = {
       taskName: '감정 분석',
       taskStatus: 'RUNNING',
       taskType: 'inference',
-      baseModel: 'BERT-base',
+      baseModel: {
+        modelId: 5,
+        modelName: 'BERT-base',
+      },
       createdAt: '2025-08-15',
     },
   ],
+  // selectedTask: {
+  //   taskId: 7,
+  //   taskName: '감정 분석',
+  //   taskStatus: 'RUNNING',
+  //   taskType: 'inference',
+  //   baseModel: {
+  //     modelId: 1,
+  //     modelName: 'BERT-base',
+  //     createdAt: '2025-08-15',
+  //     version: 'v1',
+  //     type: 'CUSTOM',
+  //   },
+  //   createdAt: '2025-08-15',
+  //   endpoint: '/api/v1/<url>',
+  // },
   selectedTask: {
     taskId: 7,
     taskName: '감정 분석',
     taskStatus: 'RUNNING',
-    taskType: 'inference',
+    taskType: 'train',
     baseModel: {
       modelId: 1,
       modelName: 'BERT-base',
-      createdAt: '2025-08-15',
-      version: 'v1',
-      type: 'CUSTOM',
     },
     createdAt: '2025-08-15',
-    endpoint: '/api/v1/<url>',
   },
 };
 
